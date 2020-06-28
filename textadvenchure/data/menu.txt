@@ -1,0 +1,2 @@
+To start type: start
+To exit type: exit
