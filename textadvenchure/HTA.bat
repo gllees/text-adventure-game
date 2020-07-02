@@ -34,19 +34,19 @@ goto #1a
 
 :house
 cls
-set l=1
+set lr=1
 echo inside the house it looks as if it were a normal living room, there is a kichen and stairs that go up
 :housea
 set /p b=
-if "%b%" == "look at living room" echo the living room is very dark it is hard to see. there seems to be a light switch & goto housea
-if "%b%" == "use light switch" echo you used the light switch you should look at the living room again & goto houseb
-goto house
+if "%b%" == "look at living room" goto houseb
+if "%b%" == "use light switch" echo you used the light switch you should look at the living room again & set lr=2
+if "%b%" == "take key" echo you grabed the key & goto housec
+goto housea
 
 :houseb
-set /p b=
-if "%b%" == "look at living room" echo you see the living room in a whole new way, there is multiple blood stains on the carpet, you also see a key
-if "%b%" == "take key" echo you grabed the key & goto housec
-goto houseb
+if "%lr%" == "1" echo the living room is very dark it is hard to see. there seems to be a light switch
+if "%lr%" == "2" echo there are blood stains on the floor, there is also a key on the floor
+goto housea
 
 :housec
 set /p b=
